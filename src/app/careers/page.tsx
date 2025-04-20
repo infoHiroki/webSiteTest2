@@ -5,6 +5,9 @@ export const metadata = {
   description: '株式会社サンプルの採用情報ページです。一緒に働く仲間を募集しています。',
 };
 
+// クライアントコンポーネントに変換
+import CareerFormClient from './CareerFormClient';
+
 export default function CareersPage() {
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -162,97 +165,9 @@ export default function CareersPage() {
           <p className="text-gray-600 mb-6">
             以下のフォームからご応募いただくか、採用担当（<a href="mailto:recruit@sample-company.jp" className="text-indigo-600 hover:text-indigo-800">recruit@sample-company.jp</a>）まで直接メールをお送りください。
           </p>
-          <div className="space-y-4">
-            <div>
-              <label htmlFor="position" className="block text-sm font-medium text-gray-700">
-                希望職種
-              </label>
-              <select
-                id="position"
-                name="position"
-                className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-              >
-                <option>Webエンジニア</option>
-                <option>ITコンサルタント</option>
-                <option>その他</option>
-              </select>
-            </div>
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                お名前
-              </label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                メールアドレス
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-              />
-            </div>
-            <div>
-              <label htmlFor="resume" className="block text-sm font-medium text-gray-700">
-                履歴書・職務経歴書
-              </label>
-              <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-                <div className="space-y-1 text-center">
-                  <svg
-                    className="mx-auto h-12 w-12 text-gray-400"
-                    stroke="currentColor"
-                    fill="none"
-                    viewBox="0 0 48 48"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                      strokeWidth={2}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <div className="flex text-sm text-gray-600">
-                    <label
-                      htmlFor="file-upload"
-                      className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
-                    >
-                      <span>ファイルをアップロード</span>
-                      <input id="file-upload" name="file-upload" type="file" className="sr-only" />
-                    </label>
-                    <p className="pl-1">またはドラッグ＆ドロップ</p>
-                  </div>
-                  <p className="text-xs text-gray-500">PDF, DOC, DOCX</p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                メッセージ
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={4}
-                className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-              ></textarea>
-            </div>
-            <div>
-              <button
-                type="submit"
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-              >
-                応募する
-              </button>
-            </div>
-          </div>
+          
+          {/* クライアントコンポーネントに置き換え */}
+          <CareerFormClient />
         </div>
       </section>
 
