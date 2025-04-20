@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import nodemailer from 'nodemailer';
+import type { Attachment } from 'nodemailer/lib/mailer';
 
 // トランスポーター設定
 const transporter = nodemailer.createTransport({
@@ -19,7 +20,7 @@ async function sendEmail(options: {
   subject: string;
   text: string;
   html?: string;
-  attachments?: any[];
+  attachments?: Attachment[];
 }) {
   return transporter.sendMail({
     from: process.env.MAIL_FROM || 'recruit@example.com',
@@ -48,7 +49,7 @@ export async function POST(request: NextRequest) {
     }
     
     // 添付ファイル処理
-    const attachments = [];
+    const attachments: Attachment[] = [];
     if (file && file.size > 0) {
       // ファイルバッファの取得
       const buffer = Buffer.from(await file.arrayBuffer());
