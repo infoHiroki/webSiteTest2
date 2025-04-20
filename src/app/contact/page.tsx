@@ -70,31 +70,29 @@ export default function ContactPage() {
     if (validateForm()) {
       setIsSubmitting(true);
       
-      // ここで実際のフォーム送信処理を行います
-      // 実際のAPIエンドポイントと連携する場合は下記のようなコードになります
-      // try {
-      //   const response = await fetch('/api/contact', {
-      //     method: 'POST',
-      //     headers: {
-      //       'Content-Type': 'application/json',
-      //     },
-      //     body: JSON.stringify(formData),
-      //   });
-      //   const data = await response.json();
-      //   if (response.ok) {
-      //     setSubmitSuccess(true);
-      //   } else {
-      //     throw new Error(data.message || 'エラーが発生しました');
-      //   }
-      // } catch (error) {
-      //   console.error('エラー:', error);
-      // }
-      
-      // デモ用に成功したとみなします
-      setTimeout(() => {
-        setSubmitSuccess(true);
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+        const data = await response.json();
+        if (response.ok) {
+          setSubmitSuccess(true);
+        } else {
+          throw new Error(data.message || 'エラーが発生しました');
+        }
+      } catch (error) {
+        console.error('エラー:', error);
+        setErrors({
+          ...errors,
+          form: typeof error === 'string' ? error : 'エラーが発生しました。後ほど再度お試しください。'
+        });
+      } finally {
         setIsSubmitting(false);
-      }, 1000);
+      }
     }
   };
 
